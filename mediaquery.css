@@ -1,0 +1,15 @@
+@media (max-width: 768px) {
+    .title-container, .description-container, .map-container, .info-container {
+      width: 100%;
+      float: none;
+    }
+    
+    .map-container {
+      height: 50vh;
+    }
+    
+    .info-container {
+      height: auto;
+    }
+  }
+  

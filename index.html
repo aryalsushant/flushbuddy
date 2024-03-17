@@ -1,25 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Flushfinder: Public Bathroom Locator</title>
   <script src="https://cdn.maptiler.com/maptiler-sdk-js/v1.2.0/maptiler-sdk.umd.min.js"></script>
   <link href="https://cdn.maptiler.com/maptiler-sdk-js/v1.2.0/maptiler-sdk.css" rel="stylesheet" />
-  <link rel = "stylesheet" href = "style.css"> 
-  
+  <link rel="stylesheet" href="style.css">
+  <link rel = "stylesheet" href = "mediaquery.css">
 </head>
 <body>
-  <div class="container">
-    <div id="top-title">
-      <h1>Flushfinder</h1>
-      <p>Find the nearest Public Bathroom</p>
-    </div>
-    <div id="map"></div>
+
+  <div class="title-container">
+  <h1>FlushFinder</h1> 
+  </div>
+
+  <div class="description-container">
+    <p>Find the nearest public bathroom</p>
+  </div>
+
+  <div class = "map-and-info">
+
+    <div class="map-container" id="map"></div>
+    <div class="info-container">Info about selected location will appear here.</div>
+
   </div>
   
-
-  <script src = "script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
