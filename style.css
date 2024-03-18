@@ -70,5 +70,8 @@
   box-sizing: border-box;
   overflow: hidden; /* Prevent content overflow */
 }
-  
+
+.footer-paragraoh {
+  font-size: 10px;;
+}
  
