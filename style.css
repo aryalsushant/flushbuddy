@@ -48,15 +48,27 @@
     margin: 10px;
   }
   
-  .info-container {
-    width: 25%;
-    height: 60vh;
-    float: left;
-    background-color: #f0f0f0; /* Placeholder color */
-    box-sizing: border-box;
-    padding: 20px;
-    margin: 10px;
-    overflow-y: auto;
-  }
+
+.info-container {
+  width: 25%;
+  height: 60vh;
+  float: left;
+  background-color: #f0f0f0; /* Placeholder color */
+  box-sizing: border-box;
+  padding: 20px;
+  margin: 10px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column; /* Ensure info boxes are stacked vertically */
+}
+
+.info-box {
+  flex: 1; /* Each box will take equal space */
+  margin: 5px 0; /* Add some space between boxes */
+  padding: 10px;
+  background-color: #e0e0e0; /* Slightly different color for distinction */
+  box-sizing: border-box;
+  overflow: hidden; /* Prevent content overflow */
+}
   
  
