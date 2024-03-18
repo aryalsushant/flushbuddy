@@ -79,6 +79,15 @@ document.addEventListener('DOMContentLoaded', function() {
       cleanliness: "9/10", 
       capacity: "6/10"
     },
+
+    {
+      coords: [-89.32961419869852, 31.330198447668852], 
+      name: "Scianna Hall", 
+      distance: "0.2 miles", 
+      accessibility: "8/10", 
+      cleanliness: "9/10", 
+      capacity: "8/10"
+    },
   ];
   
   locations.forEach(location => {
