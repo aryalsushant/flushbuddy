@@ -81,12 +81,66 @@ document.addEventListener('DOMContentLoaded', function() {
     },
 
     {
-      coords: [-89.32961419869852, 31.330198447668852], 
+      coords: [-89.33411591523232, 31.328189148315296,], 
       name: "Scianna Hall", 
       distance: "0.2 miles", 
       accessibility: "8/10", 
       cleanliness: "9/10", 
       capacity: "8/10"
+    },
+
+    {
+      coords: [-89.32961419869852, 31.330198447668852], 
+      name: "Southern Wings", 
+      distance: "0.3 miles", 
+      accessibility: "6/10", 
+      cleanliness: "9/10", 
+      capacity: "5/10"
+    },
+
+    {
+      coords: [-89.33126278617101, 31.3266440857949], 
+      name: "Kennard Washington Hall", 
+      distance: "0.3 miles", 
+      accessibility: "6/10", 
+      cleanliness: "9/10", 
+      capacity: "5/10"
+    },
+
+    {
+      coords: [-89.33179805896903, 31.326162212500215], 
+      name: "Southern Hall", 
+      distance: "0.3 miles", 
+      accessibility: "6/10", 
+      cleanliness: "9/10", 
+      capacity: "5/10"
+    },
+
+    {
+      coords: [-89.33633047418918,31.327832083647], 
+      name: "International Center", 
+      distance: "0.3 miles", 
+      accessibility: "6/10", 
+      cleanliness: "9/10", 
+      capacity: "5/10"
+    },
+
+    {
+      coords: [-89.33787516142013, 31.327102838751838], 
+      name: "Harkins Hall", 
+      distance: "0.3 miles", 
+      accessibility: "6/10", 
+      cleanliness: "9/10", 
+      capacity: "5/10"
+    },
+
+    {
+      coords: [-89.33812473627977, 31.328342154513376], 
+      name: "Asbury Hall", 
+      distance: "0.3 miles", 
+      accessibility: "6/10", 
+      cleanliness: "9/10", 
+      capacity: "5/10"
     },
   ];
   
