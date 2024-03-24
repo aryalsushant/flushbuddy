@@ -1,14 +1,15 @@
 document.addEventListener('DOMContentLoaded', function() {
-  maptilersdk.config.apiKey = 'vjTGB9AS7ixmVPTofWEZ';
-  const map = new maptilersdk.Map({
+  mapboxgl.accessToken = 'pk.eyJ1IjoiYXJ5YWxzdXNoYW50IiwiYSI6ImNsdTR6enR4NDFveHMycnBwbXp3NzRxaWQifQ.6o_xu90CG6KI9sMAiclV9w';
+
+  const map = new mapboxgl.Map({
       container: 'map',
-      style: "streets-v2",
+      style: 'mapbox://styles/mapbox/streets-v11',
       center: [-89.33278, 31.32944],
       zoom: 16,
   });
 
   const locations = [
-      // all location markers here
+      // locations array
       {
         coords: [-89.33278, 31.32944], 
         name: "Thad Cochran Center", 
@@ -143,65 +144,73 @@ document.addEventListener('DOMContentLoaded', function() {
         cleanliness: "9/10", 
         capacity: "5/10"
       },
+
   ];
 
-  locations.forEach(location => {
-      const marker = new maptilersdk.Marker()
-          .setLngLat(location.coords)
-          .addTo(map);
+  // Function to draw a route on the map
+  function drawRoute(map, coordinates) {
+      // Check if a route is already loaded
+      if (map.getSource('route')) {
+          map.removeLayer('route');
+          map.removeSource('route');
+      }
 
-      marker.getElement().addEventListener('click', function() {
-          navigator.geolocation.getCurrentPosition(function(position) {
-              const userCoords = [position.coords.longitude, position.coords.latitude];
-              const destinationCoords = location.coords;
-
-              fetch(`https://api.mapbox.com/directions/v5/mapbox/driving/${userCoords.join(',')};${destinationCoords.join(',')}?geometries=geojson&access_token=pk.eyJ1IjoiYXJ5YWxzdXNoYW50IiwiYSI6ImNsdTUwM2V5ejFydjUycm0yb2xhd3JkaHMifQ.9fSL1AAVoopecHxpjof2Vw`)
-                  .then(response => response.json())
-                  .then(data => {
-                      const route = data.routes[0].geometry;
-
-                      if (map.getSource('route')) {
-                          map.getSource('route').setData(route);
-                      } else {
-                          map.addLayer({
-                              id: 'route',
-                              type: 'line',
-                              source: {
-                                  type: 'geojson',
-                                  data: route
-                              },
-                              layout: {
-                                  'line-join': 'round',
-                                  'line-cap': 'round'
-                              },
-                              paint: {
-                                  'line-color': '#888',
-                                  'line-width': 8
-                              }
-                          });
-                      }
-
-                      document.getElementById('name').textContent = `Name: ${location.name}`;
-                      document.getElementById('distance').textContent = `Distance: ${location.distance}`;
-                      document.getElementById('accessibility').textContent = `Accessibility Rating: ${location.accessibility}`;
-                      document.getElementById('cleanliness').textContent = `Cleanliness Rating: ${location.cleanliness}`;
-                      document.getElementById('capacity').textContent = `Capacity Rating: ${location.capacity}`;
-                  })
-                  .catch(error => console.error("Fetching directions failed:", error));
-          }, function(error) {
-              console.error("Geolocation error:", error);
-          });
+      map.addSource('route', {
+          type: 'geojson',
+          data: {
+              type: 'Feature',
+              properties: {},
+              geometry: {
+                  type: 'LineString',
+                  coordinates: coordinates,
+              },
+          },
       });
-  });
-  });
 
-////might delete later
-  navigator.geolocation.getCurrentPosition(
-    (position) => {
-      console.log('Latitude:', position.coords.latitude, 'Longitude:', position.coords.longitude);
-    },
-    (error) => {
-      console.error('Geolocation error:', error);
-    }
-  );
-  
+      map.addLayer({
+          id: 'route',
+          type: 'line',
+          source: 'route',
+          layout: {
+              'line-join': 'round',
+              'line-cap': 'round',
+          },
+          paint: {
+              'line-color': '#888',
+              'line-width': 8,
+          },
+      });
+  }
+
+  locations.forEach(location => {
+      const el = document.createElement('div');
+      el.className = 'marker';
+
+      new mapboxgl.Marker(el)
+          .setLngLat(location.coords)
+          .addTo(map)
+          .getElement().addEventListener('click', () => {
+              navigator.geolocation.getCurrentPosition(position => {
+                  const origin = [position.coords.longitude, position.coords.latitude];
+                  const destination = location.coords;
+
+                  // Fetch the route using Mapbox Directions API
+                  fetch(`https://api.mapbox.com/directions/v5/mapbox/driving/${origin.join(',')};${destination.join(',')}?geometries=geojson&access_token=${mapboxgl.accessToken}`, {
+                      method: 'GET'
+                  }).then(response => response.json()).then(data => {
+                      const route = data.routes[0].geometry.coordinates;
+                      drawRoute(map, route);
+                  });
+              }, (error) => {
+                  console.error('Geolocation error:', error);
+              });
+
+              // Update info boxes with location details
+              document.getElementById('name').textContent = `Name: ${location.name}`;
+              document.getElementById('distance').textContent = `Distance: ${location.distance}`;
+              document.getElementById('accessibility').textContent = `Accessibility Rating: ${location.accessibility}`;
+              document.getElementById('cleanliness').textContent = `Cleanliness Rating: ${location.cleanliness}`;
+              document.getElementById('capacity').textContent = `Capacity Rating: ${location.capacity}`;
+          });
+  });
+});
