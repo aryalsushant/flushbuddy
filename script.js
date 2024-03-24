@@ -8,6 +8,9 @@ document.addEventListener('DOMContentLoaded', function() {
       zoom: 16,
   });
 
+  //might delete later
+  map.addControl(new mapboxgl.NavigationControl());
+
   const locations = [
       // locations array
       {
