@@ -1,4 +1,12 @@
+body {
+  background-color: #101820FF;
+}
 
+.title-container img {
+  height: 60px;
+  width: 60px;
+  
+}
 
   h1 {
     font-family: arial;
@@ -11,19 +19,24 @@
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+    background-color: #101820FF;
   }
   
   .title-container, .description-container {
     flex: 1;
-    min-width: 45%; /* Ensure each takes up at least half the container */
+    
+     /* Ensure each takes up at least half the container */
+    
   }
 
   .title-container {
     min-width: 25%;
+    color: white;
   }
 
   .description-container {
-    min-width: 70%;
+    min-width: 45%;
+    color:#FEE715FF;
   }
   
   .title-container {
@@ -61,26 +74,33 @@
   width: 25%;
   height: 60vh;
   float: left;
-  background-color: #f0f0f0; /* Placeholder color */
+  background-color:rgb(27, 37, 48);  /* Placeholder color */
   box-sizing: border-box;
   padding: 20px;
   margin: 10px;
   overflow-y: auto;
   display: flex;
   flex-direction: column; /* Ensure info boxes are stacked vertically */
+  border-radius: 8%;
 }
 
 .info-box {
   flex: 1; /* Each box will take equal space */
   margin: 5px 0; /* Add some space between boxes */
   padding: 10px;
-  background-color: #e0e0e0; /* Slightly different color for distinction */
+  background-color: #FEE715FF; /* Slightly different color for distinction */
   box-sizing: border-box;
   overflow: hidden; /* Prevent content overflow */
+  border-radius: 5px;
+  font-size: 2.6vh;
+  color: #101820FF;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
-.footer-paragraoh {
-  font-size: 10px;;
+.footer-paragraph {
+  font-size: 3vh;
+  color: white;
+  text-align: center;
 }
 
 .marker {
@@ -90,6 +110,15 @@
   height: 40px;
   border-radius: 50%;
   cursor: pointer;
+  
 }
 
- 
+.title-container {
+  display: flex; /* Use Flexbox */
+  align-items: center; /* Align items vertically in the center */
+  min-width: 25%;
+  color: white;
+  margin: 15px;
+}
+
+
