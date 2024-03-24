@@ -6,25 +6,32 @@
   }
 
   
-  .title-container {
-    width: 100%;
-    text-align: center;
-    padding-top: 2px;
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-bottom: 0;
-    box-sizing: border-box;
-    margin-bottom: 0;
+  .title-and-description {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  
+  .title-container, .description-container {
+    flex: 1;
+    min-width: 45%; /* Ensure each takes up at least half the container */
   }
 
-    .description-container {
-    width: 100%;
-    text-align: center;
-    padding-top: 0;
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-bottom: 2px;
-    box-sizing: border-box;
+  .title-container {
+    min-width: 25%;
+  }
+
+  .description-container {
+    min-width: 70%;
+  }
+  
+  .title-container {
+    margin: 15px;
+  }
+
+  .description-container p {
+    text-align: left;
   }
 
  
