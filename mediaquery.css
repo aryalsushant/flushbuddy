@@ -6,7 +6,7 @@
   .map-container {
     /* Ensure the map takes full width on mobile and adjusts the height as needed */
     width: 100%;
-    height: 50vh; /* Adjust based on your preference */
+    height: 75vh; /* Adjust based on your preference */
     order: 1; /* Map comes first */
   }
 
