@@ -1,25 +1,43 @@
 @media (max-width: 768px) {
-  .title-and-description {
-    flex-direction: column; /* Stack them vertically */
+  .content {
+    flex-direction: column;
   }
 
-  .title-container, .description-container {
-    width: 100%; /* Use the full width */
-    flex: none; /* Override any previous flex settings */
-    min-height: auto; /* Ensure they can grow in height as needed */
-    padding-bottom: 10px; /* Add some space below each for clarity */
-  }
-
-  .map-container, .info-container {
-    width: 100%;
-    float: none;
-  }
-  
   .map-container {
-    height: 50vh;
+    /* Ensure the map takes full width on mobile and adjusts the height as needed */
+    width: 100%;
+    height: 50vh; /* Adjust based on your preference */
+    order: 1; /* Map comes first */
   }
-  
-  .info-container {
-    height: auto;
+
+  .sidebar {
+    /* The sidebar takes full width and places itself under the map */
+    width: 100%;
+    flex-basis: auto;
+    padding: 20px; /* Increased padding for better spacing on small screens */
+    order: 2; /* Sidebar comes after the map */
+  }
+
+  .title-and-description h1, .title-and-description p {
+    /* Center align the title and description on mobile */
+    text-align: center;
+  }
+
+  .header {
+    /* Stack the logo and title/description vertically and center them */
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+
+  .footer-paragraph {
+    /* Increase padding for better visibility on small screens */
+    padding: 20px;
+  }
+
+  .button {
+    /* Ensure buttons are full width on small screens */
+    width: calc(100% - 40px); /* Account for padding */
+    margin-top: 10px;
   }
 }

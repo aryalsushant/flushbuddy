@@ -3,61 +3,49 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
   <title>FlushBuddy: Public Bathroom Locator</title>
-
-  
-<script src='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js'></script>
-<link href='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css' rel='stylesheet' />
-
-
+  <script src='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js'></script>
+  <link href='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css' rel='stylesheet' />
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="mediaquery.css">
 </head>
 <body>
 
-  <div class="title-and-description">
-    <div class="title-container">
-      <img src = "logo.png">
-      <h1>FlushBuddy</h1> 
-    </div>
-  
-    <div class="description-container">
+  <header class="header">
+    <img src="logo.png" alt="FlushBuddy logo" class="logo">
+    <div class="title-and-description">
+      <h1>FlushBuddy</h1>
       <p>Find the nearest public bathroom</p>
     </div>
-  </div>
-  
-  <div class="map-and-info">
+  </header>
 
-    <div class="map-container" id="map">
-      <div id='map' style='width: 400px; height: 300px;'></div>
-
-
-    </div>
-
-
-    <div class="info-container">
-      <div class="info-box" id="name">
-        Click on a bathroom icon to view its information
+  <div class="content">
+    <aside class="sidebar">
+      <div class="info-container">
+        <div class="info-box" id="name">Select a location</div>
+        <div class="info-box" id="distance"></div>
+        <div class="info-box" id="accessibility"></div>
+        <div class="info-box" id="cleanliness"></div>
+        <div class="info-box" id="capacity"></div>
       </div>
-      <div class="info-box" id="distance"></div>
-      <div class="info-box" id="accessibility"></div>
-      <div class="info-box" id="cleanliness"></div>
-      <div class="info-box" id="capacity"></div>
-    </div>
+      <button class="button">Button</button>
+      <button class="button">Button</button>
+    </aside>
+
+    <div class="map-container" id="map"></div>
   </div>
 
   <footer>
     <p class="footer-paragraph">
       Note: This is an incomplete demo app covering only the Hattiesburg Campus of the
-      University of Southern Mississippi. All informations may not be accurate.
+      University of Southern Mississippi. All information may not be accurate.
     </p>
   </footer>
 
-  <script src = "locations.js"></script>
+  <script src="locations.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
