@@ -84,4 +84,9 @@ body, h1, p, button {
   
 }
 
+
 /* Media queries are in mediaquery.css */
+
+.button {
+  opacity: 0;
+}
